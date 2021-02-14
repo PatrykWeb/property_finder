@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand" href="#">search-finder.com</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -7,20 +7,24 @@
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <% if account_signed_in? %>
+          <%= link_to "Dashboard", dashboard_path, class: 'nav-link' %>
+          <% else %>
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <% end %>
       </li>
       <% if account_signed_in? %>
+        <li class="nav-item">
+          <%= link_to 'Wyloguj sie', destroy_account_session_path, class: 'nav-link', method: :delete %>
+        </li>
+        <% else %>
         <li class="nav-item">
           <%= link_to 'Zaloguj sie', new_account_session_path, class: 'nav-link'%>
         </li>
         <li class="nav-item">
           <%= link_to 'Zarejestruj sie', new_account_registration_path, class: 'nav-link' %>
         </li>
-        <% else %>
         <% end %>
-      <li class="nav-item">
-        <%= link_to 'Wyloguj sie', destroy_account_session_path, class: 'nav-link', method: :delete %>
-      </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Informacje</a>
       </li>
