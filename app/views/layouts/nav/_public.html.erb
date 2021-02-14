@@ -9,12 +9,15 @@
       <li class="nav-item active">
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <%= link_to 'Zaloguj sie', new_account_session_path, class: 'nav-link'%>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Zarejestruj się</a>
-      </li>
+      <% if account_signed_in? %>
+        <li class="nav-item">
+          <%= link_to 'Zaloguj sie', new_account_session_path, class: 'nav-link'%>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Zarejestruj sie', new_account_registration_path, class: 'nav-link' %>
+        </li>
+        <% else %>
+        <% end %>
       <li class="nav-item">
         <%= link_to 'Wyloguj sie', destroy_account_session_path, class: 'nav-link', method: :delete %>
       </li>
