@@ -1,3 +1,4 @@
+<div class = "container-fluid">
 <%= form_with(model: property) do |form| %>
   <% if property.errors.any? %>
     <div id="error_explanation">
@@ -12,31 +13,32 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label :name%>
+    <%= form.text_field :name, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :address %>
-    <%= form.text_field :address %>
+    <%= form.text_field :address, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :price %>
-    <%= form.number_field :price %>
+    <%= form.number_field :price, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :rooms %>
-    <%= form.number_field :rooms %>
+    <%= form.number_field :rooms, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :bathrooms %>
-    <%= form.number_field :bathrooms %>
+    <%= form.number_field :bathrooms, class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'w-100 btn btn-lg btn-primary'%>
   </div>
 <% end %>
+</div>
