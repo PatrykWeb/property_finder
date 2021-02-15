@@ -12,10 +12,10 @@
     <% if ["public", "device"].include?(controller.controller_name)  %>
     <header>
       <%= render 'layouts/nav/public'%>
+      <%= yield %>
     </header>
     <% else %>
       <%= render 'layouts/nav/dashboard' %>
-
       <div class="container">
         <div class="row">
           <%= render 'layouts/nav/sidebar' %>
@@ -25,6 +25,7 @@
         </div>
       </div>
     <% end %>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     </body>
